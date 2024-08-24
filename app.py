@@ -216,17 +216,18 @@ def extract_text(file_path):
         return "Unsupported file format"
 
 def extract_pdf(file_path):
-    """Extract text from a PDF file."""
-    text = ""
-    try:
-        with open(file_path, 'rb') as file:
-            reader = PyPDF2.PdfReader(file)
-            for page in reader.pages:
-                text += page.extract_text()
-        print(f"Extracted {len(text)} characters from PDF")
-    except Exception as e:
-        print(f"Error extracting PDF text: {str(e)}")
-    return text
+       """Extract text from a PDF file."""
+       text = ""
+       try:
+           with open(file_path, 'rb') as file:
+               reader = PyPDF2.PdfReader(file)
+               for page in reader.pages:
+                   text += page.extract_text()
+           print(f"Extracted {len(text)} characters from PDF")
+           print(f"First 500 characters: {text[:500]}")
+       except Exception as e:
+           print(f"Error extracting PDF text: {str(e)}")
+       return text
 
 def extract_docx(file_path):
     """Extract text from a DOCX file."""
