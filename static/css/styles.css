@@ -1,0 +1,53 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+.container {
+    display: flex;
+    height: 100vh;
+}
+.document, .chat {
+    width: 50%;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+.document {
+    border-right: 1px solid #ccc;
+}
+#documentContent {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+#selectedTextInfo {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+#question {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+button {
+    padding: 10px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+}
+#chatbox {
+    border: 1px solid #ccc;
+    padding: 10px;
+    height: calc(100% - 100px);
+    overflow-y: auto;
+}
+.highlighted-text { background-color: yellow; }
+#loadingIndicator { display: none; }
+.chat-entry { border-bottom: 1px solid #ccc; padding: 10px 0; }
+.entity { padding: 2px 4px; border-radius: 3px; font-weight: bold; }
+.entity-PERSON { background-color: #fca; }
+.entity-ORG { background-color: #afa; }
+.entity-GPE { background-color: #aaf; }
+.entity-LOC { background-color: #faa; }

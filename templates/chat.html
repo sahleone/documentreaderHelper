@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Document Chat{% endblock %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="document">
+            <h3>Document Information</h3>
+            <p>Document Name: {{ document_name or 'No document name' }}</p>
+            <p>Document Content Length: {{ document_content|length }}</p>
+            {% if document_name.lower().endswith('.pdf') %}
+                <div>
+                    <h3>Uploaded PDF: {{ document_name }}</h3>
+                    <embed src="{{ url_for('serve_pdf', filename=document_name) }}" type="application/pdf" width="100%" height="600px" />
+                </div>
+            {% else %}
+                {% if document_name and document_content %}
+                    <h4>Document Content:</h4>
+                    <div id="documentContent">
+                        {{ document_content }}
+                    </div>
+                {% else %}
+                    <p>No document uploaded yet. Please upload a document first.</p>
+                {% endif %}
+            {% endif %}
+        </div>
+        <div class="chat">
+            <div id="selectedTextInfo"></div>
+            <input type="text" id="question" placeholder="Ask a question...">
+            <div id="buttonContainer">
+                <button id="askLocalButton" data-model="local">Ask Local</button>
+                <button id="askOpenAIButton" data-model="openai">Ask OpenAI</button>
+                <button id="clearContextButton">Clear Context</button>
+            </div>
+            <div id="chatbox"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+{% endblock %}

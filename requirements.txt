@@ -1,0 +1,16 @@
+Flask==2.3.2
+nltk==3.9.1
+numpy==1.24.3
+faiss-cpu==1.8.0.post1
+torch==2.4.0
+transformers==4.44.2
+sentence-transformers==3.0.1
+python-dotenv==1.0.1
+openai==1.42.0
+PyMuPDF==1.23.8
+python-docx==0.8.11
+epub_conversion==1.0.15
+html2text==2024.2.26
+pyOpenSSL==24.0.0
+xml-cleaner==2.0.4  
+PyPDF2==3.0.1
